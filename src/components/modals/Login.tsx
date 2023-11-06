@@ -1,11 +1,12 @@
 import { authModalState } from "@/atoms/authmodalAtom";
 import { auth } from "@/firebase/firebase";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useSetRecoilState } from "recoil";
 import GoogleLogin from "../buttons/GoogleLogin";
 import FacebookLogin from "../buttons/FacebookLogin";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
@@ -26,6 +27,8 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!inputs.email || !inputs.password)
+      return alert("Please fill in all fields");
     try {
       const user = await signInWithEmailAndPassword(
         inputs.email,
@@ -38,7 +41,14 @@ const Login = () => {
     }
   };
 
-  console.log(user);
+  useEffect(() => {
+    if (error)
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
+  }, [error]);
 
   return (
     <>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import RecoilRootWrapper from "../components/wrapper/RecoilWrapper";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "LeetCode",
@@ -16,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <RecoilRootWrapper>
         <body className="">{children}</body>
+        <ToastContainer />
       </RecoilRootWrapper>
     </html>
   );

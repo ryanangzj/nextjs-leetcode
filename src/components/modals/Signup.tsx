@@ -4,6 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/firebase";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
@@ -46,7 +47,11 @@ const Signup = () => {
 
   useEffect(() => {
     if (error) {
-      alert(error.message);
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
     }
   }, [error]);
 
