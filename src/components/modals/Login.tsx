@@ -52,12 +52,12 @@ const Login = () => {
 
   return (
     <>
+      <h3 className="flex justify-center text-xl font-semibold text-white">
+        Sign in to Leet Code
+      </h3>
+      <GoogleLogin />
+      <FacebookLogin />
       <form className="space-y-6 px-6 py-4" onSubmit={handleLogin}>
-        <h3 className="flex justify-center text-xl font-semibold text-white">
-          Sign in to Leet Code
-        </h3>
-        <GoogleLogin />
-        <FacebookLogin />
         <div className="flex items-center">
           <hr className="flex-grow border-t border-gray-300" />
           <span className="px-4 text-gray-100 font-semibold text-md">or</span>

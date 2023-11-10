@@ -27,7 +27,7 @@ const FacebookLogin = () => {
   };
 
   return (
-    <div>
+    <div className="px-6">
       <button
         className="flex items-center justify-center h-10 px-6 mt-4 text-sm sm:mx-auto sm:w-full sm:max-w-sm bg-white border-2 border-gray-100  text-black rounded-lg focus:shadow-outline hover:bg-slate-200 duration-300 transition-colors font-semibold"
         onClick={signInWithFacebook}

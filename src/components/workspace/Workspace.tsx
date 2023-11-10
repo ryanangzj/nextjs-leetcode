@@ -1,19 +1,39 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Split from "react-split";
 import ProblemDescription from "./problemDescription/ProblemDescription";
 import Playground from "./playground/Playground";
+import { Problem } from "@/utils/types/problem";
+import { problems } from "@/utils/problems";
+import ReactConfetti from "react-confetti";
+import useWindowSize from "@/hooks/useWindowSize";
 
 type Props = {
-  // problem: Problem
+  problem: Problem;
 };
 
-const Workspace = (props: Props) => {
+const Workspace = ({ problem }: Props) => {
+  const { width, height } = useWindowSize();
+  const [success, setSuccess] = useState(false);
+  const [solved, setSolved] = useState(false);
+
   return (
     <Split className="split" minSize={0}>
-      <ProblemDescription />
+      <ProblemDescription problem={problem} _solved={solved} />
       <div className="bg-dark-fill-2">
-        <Playground />
+        <Playground
+          problem={problem}
+          setSuccess={setSuccess}
+          setSolved={setSolved}
+        />
+        {success && (
+          <ReactConfetti
+            gravity={0.3}
+            tweenDuration={4000}
+            width={width - 1}
+            height={height - 1}
+          />
+        )}
       </div>
     </Split>
   );
