@@ -387,7 +387,7 @@ function useGetUsersDataOnProblem(problemId: string) {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const useGetUsersDataOnProblem = async () => {
+    const getUsersDataOnProblem = async () => {
       const userRef = doc(firestore, "users", user!.uid);
       const userSnap = await getDoc(userRef);
       if (userSnap.exists()) {
@@ -407,7 +407,9 @@ function useGetUsersDataOnProblem(problemId: string) {
       }
     };
 
-    if (user) useGetUsersDataOnProblem();
+    if (!user) return;
+
+    getUsersDataOnProblem();
     return () =>
       setData({ liked: false, disliked: false, starred: false, solved: false });
   }, [problemId, user]);

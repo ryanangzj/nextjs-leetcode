@@ -34,7 +34,7 @@ const FacebookLogin = () => {
         onClick={signInWithFacebook}
       >
         <Image
-          src="Facebook.png"
+          src="/Facebook.png"
           alt="Facebook Logo"
           width={25}
           height={25}
