@@ -2,6 +2,7 @@
 import { auth, firestore } from "@/firebase/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { setDoc, doc, query, collection } from "firebase/firestore";
+import Image from "next/image";
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
@@ -52,8 +53,8 @@ const GoogleLogin = () => {
         className="flex items-center justify-center h-10 px-6 mt-8 text-sm sm:mx-auto sm:w-full sm:max-w-sm bg-white border-2 border-gray-100  text-black rounded-lg focus:shadow-outline hover:bg-slate-200 duration-300 transition-colors font-semibold"
         onClick={signInWithGoogle}
       >
-        <img
-          src="Google.png"
+        <Image
+          src="/Google.png"
           alt="Google Logo"
           width={20}
           height={20}

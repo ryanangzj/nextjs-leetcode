@@ -22,6 +22,7 @@ import CircleSkeleton from "@/components/skeleton/CircleSkeleton";
 import RectangleSkeleton from "@/components/skeleton/RectangleSkeleton";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 type Props = {
   problem: Problem;
@@ -305,7 +306,7 @@ const ProblemDescription = ({ problem, _solved }: Props) => {
                     Example {index + 1}:
                   </p>
                   {example.img && (
-                    <img src={example.img} alt="" className="mt-3" />
+                    <Image src={example.img} alt="" className="mt-3" />
                   )}
                   <div className="example-card">
                     <pre>
