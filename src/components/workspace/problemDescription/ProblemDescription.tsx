@@ -306,7 +306,13 @@ const ProblemDescription = ({ problem, _solved }: Props) => {
                     Example {index + 1}:
                   </p>
                   {example.img && (
-                    <Image src={example.img} alt="" className="mt-3" />
+                    <Image
+                      src={example.img}
+                      alt=""
+                      className="mt-3 h-auto w-auto"
+                      width={700}
+                      height={250}
+                    />
                   )}
                   <div className="example-card">
                     <pre>

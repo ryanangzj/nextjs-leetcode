@@ -1,6 +1,9 @@
 import { auth } from "@/firebase/firebase";
 import React, { useEffect, useState } from "react";
-import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 
 const ResetPassword = () => {
